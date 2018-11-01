@@ -19,7 +19,7 @@
     <img :src="userImage" width="250px" @error="handleInvalidImage">
     <div class="form-group">
       <%= f.text_field :image, class: "form-control mt-3", placeholder: "Enter image url", :@blur => 'updateImage' %>
-      <p v-if="invalidImage" class="text-danger mt-2">Enter a valid url</p>
+      <p v-if="showError" class="text-danger mt-2">Enter a valid url</p>
     </div>
   </div>
 
@@ -48,24 +48,30 @@
 <% end %>
 
 <script>
+  
 
   var dynamicImage = new Vue({
     el: '#review-form',
     data: {
       defaultImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
       userImage: '<%= @review.image %>',
-      invalidImage: false
+      showError: false
     },
     methods: {
       updateImage(e) {
         this.userImage = e.target.value
-        this.invalidImage = false;
+        this.showError = false;
       },
       handleInvalidImage() {
-        this.invalidImage = true;
+        this.userImage = this.defaultImage;        
+        this.showError = true;
+      }
+    },
+    created() {
+      if (this.userImage.length == 0) {
         this.userImage = this.defaultImage;
       }
     }
-  })
+  });
 
 </script>
