@@ -17,6 +17,26 @@
   </p>
   <p>
     <strong>Image:</strong><br>
-    <%= image_tag @review.image, width: "200px" %>
+    <img :src="image" @error="defaultImage" width="250px">
+    <p v-if="text.length">{{ text }} <%= link_to 'Edit here', edit_review_path(@review) %></p>
   </p>
 </div>
+
+<script>
+  
+  var imageError = new Vue({
+    el: '#review',
+    data: {
+      image: '<%= @review.image %>',
+      newImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
+      text: ''
+    },
+    methods: {
+      defaultImage() {
+        this.image = this.newImage;
+        this.text = 'Image url was invalid.'
+      }
+    }
+  })
+  
+</script>
