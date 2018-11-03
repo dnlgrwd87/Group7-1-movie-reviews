@@ -5,12 +5,18 @@
 #landing {
   h1 {
     font-family: 'Amaranth', sans-serif;
-    // font-family: 'Lalezar', cursive;
-    // font-family: 'Bangers', cursive;
-
   }
+  
+  p {
+    font-family: 'Lalezar', sans-serif;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: lightblue;
+  }
+  
   img {
     width: 250px;
-    height: 250px;
   }
 }
