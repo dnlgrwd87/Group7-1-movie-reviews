@@ -6,6 +6,7 @@
   <table v-if="listLength > 0" class="table">
     <thead>
       <tr>
+        <th>Image</th>
         <th>Title</th>
         <th>Author</th>
         <th>Rating</th>
@@ -16,6 +17,9 @@
     <tbody>
       <% @reviews.each do |review| %>
       <tr>
+        <td>
+          <img src="<%= review.image %>" style="width: 45px">
+        </td>
         <td>
           <%= review.title %>
         </td>

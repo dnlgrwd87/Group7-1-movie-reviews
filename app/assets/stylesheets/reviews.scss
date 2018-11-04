@@ -6,6 +6,10 @@
   a.btn {
     padding: 2px 12px;
   }
+  
+  .table > tbody > tr > td {
+     vertical-align: middle;
+}
 }
 
 #new-review, #edit-review {
