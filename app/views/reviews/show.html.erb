@@ -20,6 +20,7 @@
     <img :src="image" @error="defaultImage" width="250px">
     <p v-if="text.length">{{ text }} <%= link_to 'Edit here', edit_review_path(@review) %></p>
   </p>
+  <%= link_to "Back to Reviews", reviews_path %>
 </div>
 
 <script>
@@ -40,3 +41,4 @@
   })
   
 </script>
+
