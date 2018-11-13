@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   get 'landing/index'
 
-  resources :reviews do
-    resources :comments 
-  end
+  resources :reviews
 
   root 'landing#index'
 end

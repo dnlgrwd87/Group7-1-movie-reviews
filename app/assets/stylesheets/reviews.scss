@@ -2,17 +2,18 @@
   th {
     border-top: none;
   }
-  
+
   a.btn {
     padding: 2px 12px;
   }
-  
+
   .table > tbody > tr > td {
-     vertical-align: middle;
-}
+    vertical-align: middle;
+  }
 }
 
-#new-review, #edit-review {
+#new-review,
+#edit-review {
   .text-area {
     height: 133px;
   }
