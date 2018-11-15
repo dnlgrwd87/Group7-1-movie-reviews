@@ -13,12 +13,21 @@
 }
 
 #new-review,
-#edit-review {
+#edit-review,
+#show-review {
   .text-area {
     height: 133px;
   }
-  .urlImage {
-    width: 250px;
+  .url-image {
+    width: 220px;
     height: 251px;
+  }
+  .url-input {
+    width: 220px;
+  }
+  th,
+  td {
+    padding-bottom: 0;
+    border: none;
   }
 }

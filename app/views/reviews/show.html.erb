@@ -1,34 +1,37 @@
-<div id="review" class="container">
-  <p class="mt-4">
-    <strong>Title: </strong>
-    <%= @review.title %>
-  </p>
-  <p>
-    <strong>Rating: </strong>
-    <%= @review.rating %>
-  </p>
-  <p>
-    <strong>Author: </strong>
-    <%= @review.author %>
-  </p>
-  <p>
-    <strong>Review:</strong>
-    <%= @review.text %>
-  </p>
-  <p>
-    <strong>Image:</strong><br>
-    <img :src="image" @error="defaultImage" width="250px">
-    <p v-if="text.length">{{ text }} <%= link_to 'Edit here', edit_review_path(@review) %></p>
-  </p>
+<div id="show-review" class="container">
+  <h2 class="mt-4 mb-5">Review</h2>
 
+  <div class="row">
+    <div class="col-sm-3 d-flex flex-column"><img :src="image" @error="defaultImage" class="url-image img-fluid" /></div>
+
+    <div class="col pl-0">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th class="fit pl-0">Title</th>
+            <th class="fit">Author</th>
+            <th class="fit">Rating</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="fit pl-0"><%= @review.title %></td>
+            <td class="fit"><%= @review.author %></td>
+            <td class="fit"><%= @review.rating %></td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <div class="mt-4"><b>Review:</b><br><%= @review.text %></div>
+    </div>
+  </div>
   <%= link_to "Back to Reviews", reviews_path %>
-
 </div>
 
 <script>
-  
   var imageError = new Vue({
-    el: '#review',
+    el: '#show-review',
     data: {
       image: '<%= @review.image %>',
       newImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
@@ -37,10 +40,8 @@
     methods: {
       defaultImage() {
         this.image = this.newImage;
-        this.text = 'Image url was invalid.'
+        this.text = 'Image url was invalid.';
       }
     }
-  })
-  
+  });
 </script>
-

@@ -14,7 +14,12 @@
  *= require_self
  */
 
-
 img {
   border-radius: 7px;
+}
+
+.table td.fit,
+.table th.fit {
+  white-space: nowrap;
+  width: 1%;
 }
