@@ -26,10 +26,14 @@
       <div class="mt-4"><b>Review:</b><br /><%= @review.text %></div>
     </div>
   </div>
-  <%= link_to "Back to Reviews", reviews_path %>
+  <%= link_to "Back to Reviews", reviews_path %><br>
 
   <div>
     <%= render 'comments/form' %>
+  </div>
+
+  <div>
+    <%= render 'comments/comment' %>
   </div>
 </div>
 
