@@ -22,11 +22,15 @@
           </tr>
         </tbody>
       </table>
-      <hr>
-      <div class="mt-4"><b>Review:</b><br><%= @review.text %></div>
+      <hr />
+      <div class="mt-4"><b>Review:</b><br /><%= @review.text %></div>
     </div>
   </div>
   <%= link_to "Back to Reviews", reviews_path %>
+
+  <div>
+    <%= render 'comments/form' %>
+  </div>
 </div>
 
 <script>
@@ -35,7 +39,8 @@
     data: {
       image: '<%= @review.image %>',
       newImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
-      text: ''
+      text: '',
+      showNewCommentInput: false
     },
     methods: {
       defaultImage() {
