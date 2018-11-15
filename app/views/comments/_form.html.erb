@@ -1,13 +1,17 @@
 <%= form_for([@review, @review.comments.build]) do |f| %>
-  <p>
-    <%= f.label :author %><br>
-    <%= f.text_field :author, :required => true %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body, :required => true %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :author %><br />
+      <%= f.text_field :author, class: "form-control", :required => true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body %><br />
+      <%= f.text_area :body, class: "form-control", :required => true %>
+    </div>
+    <%= f.submit 'Post', class: "btn btn-primary btn-sm" %>
+    <span @click="showCommentInput = false" class="btn btn-warning btn-sm text-white">Cancel</span>
+  </div>
+</div>
+
 <% end %>

@@ -26,15 +26,20 @@
       <div class="mt-4"><b>Review:</b><br /><%= @review.text %></div>
     </div>
   </div>
-  <%= link_to "Back to Reviews", reviews_path %><br>
 
-  <div>
-    <%= render 'comments/form' %>
+  <hr />
+  <p v-if="!showCommentInput" @click="showCommentInput = true" style="cursor: pointer">Leave a comment
+    <span class="pl-2"><i class="far fa-comment"></i></span>
+  </p>
+  <div v-if="showCommentInput"><%= render 'comments/form' %></div>
+  <hr />
+
+  <div v-if="!commentsEmpty">
+    <h4>Comments</h4>
+    <div><%= render 'comments/comment' %></div>
   </div>
 
-  <div>
-    <%= render 'comments/comment' %>
-  </div>
+  <%= link_to "Back to Reviews", reviews_path %><br />
 </div>
 
 <script>
@@ -43,13 +48,16 @@
     data: {
       image: '<%= @review.image %>',
       newImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
-      text: '',
-      showNewCommentInput: false
+      showCommentInput: false
     },
     methods: {
       defaultImage() {
         this.image = this.newImage;
-        this.text = 'Image url was invalid.';
+      }
+    },
+    computed: {
+      commentsEmpty() {
+        return '<%= (@review.comments).first.author %>' == ''; // if comment section is empty
       }
     }
   });
