@@ -1,8 +1,8 @@
 <%= form_for @review do |f| %>
 <div id="review-form" class="row">
   <div class="col-sm-3">
-    <img :src="userImage" @error="handleInvalidImage" class="urlImage">
-    <div class="form-group">
+    <img :src="userImage" @error="handleInvalidImage" class="url-image img-fluid" />
+    <div class="form-group url-input">
       <%= f.text_field :image, class: "form-control mt-3", placeholder: "Enter image url", :@blur => 'updateImage' %>
       <p v-if="showError" class="text-danger mt-2">Enter a valid url</p>
     </div>
@@ -11,21 +11,21 @@
   <div class="col">
     <div class="row">
       <div class="form-group col-sm-5">
-        <%= f.label :title, 'Movie Title' %><br>
-        <%= f.text_field :title, class: "form-control" %>
+        <%= f.label :title, 'Movie Title' %><br />
+        <%= f.text_field :title, class: "form-control", :required => true %>
       </div>
       <div class="form-group col-sm-5">
-        <%= f.label :author, 'Author' %><br>
-        <%= f.text_field :author, class: "form-control" %>
+        <%= f.label :author, 'Author' %><br />
+        <%= f.text_field :author, class: "form-control", :required => true %>
       </div>
       <div class="form-group col">
-        <%= f.label :rating, 'Rating' %><br>
-        <%= f.number_field :rating, class: "form-control", min: 0, max: 10 %>
+        <%= f.label :rating, 'Rating' %><br />
+        <%= f.number_field :rating, class: "form-control", min: 0, max: 10, :required => true %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :text, 'Write your review' %><br>
-      <%= f.text_area :text, class: "form-control text-area", height: "300px" %>
+      <%= f.label :text, 'Write your review' %><br />
+      <%= f.text_area :text, class: "form-control text-area", minlength: 50, height: "300px", :required => true %>
     </div>
     <%= f.submit 'Submit', class: "btn btn-primary" %>
   </div>
@@ -33,7 +33,6 @@
 <% end %>
 
 <script>
-
   var dynamicImage = new Vue({
     el: '#review-form',
     data: {
@@ -43,11 +42,11 @@
     },
     methods: {
       updateImage(e) {
-        this.userImage = e.target.value
+        this.userImage = e.target.value;
         this.showError = false;
       },
       handleInvalidImage() {
-        this.userImage = this.defaultImage;        
+        this.userImage = this.defaultImage;
         this.showError = true;
       }
     },
@@ -57,5 +56,4 @@
       }
     }
   });
-
 </script>

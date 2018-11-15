@@ -6,30 +6,30 @@
   <table v-if="listLength > 0" class="table">
     <thead>
       <tr>
-        <th>Image</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Rating</th>
-        <th>Options</th>
+        <th class="fit">Image</th>
+        <th class="fit">Title</th>
+        <th class="fit">Author</th>
+        <th class="fit">Rating</th>
+        <th class="fit">Options</th>
       </tr>
     </thead>
 
     <tbody>
       <% @reviews.each do |review| %>
       <tr>
-        <td>
+        <td class="fit">
           <img src="<%= review.image %>" style="width: 45px">
         </td>
-        <td>
+        <td class="fit">
           <%= review.title %>
         </td>
-        <td>
+        <td class="fit">
           <%= review.author %>
         </td>
-        <td>
+        <td class="fit">
           <%= review.rating %>
         </td>
-        <td>
+        <td class="fit">
           <%= link_to 'Show', review_path(review), class: 'btn btn-primary btn-sm' %>
           <%= link_to 'Edit', edit_review_path(review), class: 'ml-2 btn btn-warning text-white btn-sm'%>
           <%= link_to 'Delete',
