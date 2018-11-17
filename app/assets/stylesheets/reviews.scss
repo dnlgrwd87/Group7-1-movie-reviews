@@ -31,4 +31,14 @@
     padding-top: 0;
     border: none;
   }
+  .leave-comment {
+    color: #18c1f5;
+    text-shadow: 1px 1px 1px rgb(209, 209, 209);
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(29, 172, 216);
+      text-shadow: 1px 1px 5px rgb(209, 209, 209);
+    }
+  }
 }

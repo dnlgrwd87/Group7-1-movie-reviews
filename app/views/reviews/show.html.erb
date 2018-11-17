@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-3 d-flex flex-column"><img :src="image" @error="defaultImage" class="url-image img-fluid" /></div>
 
-    <div class="col pl-0">
+    <div class="col-sm-9 pl-0">
       <table class="table table-borderless">
         <thead>
           <tr>
@@ -28,8 +28,8 @@
   </div>
 
   <hr />
-  <p v-if="!showCommentInput" @click="showCommentInput = true" style="cursor: pointer">Leave a comment
-    <span class="pl-2"><i class="far fa-comment"></i></span>
+  <p v-if="!showCommentInput" @click="showCommentInput = true" class="leave-comment">
+    Leave a comment <span class="pl-2"><i class="far fa-comment"></i></span>
   </p>
   <div v-if="showCommentInput"><%= render 'comments/form' %></div>
   <hr />
