@@ -2,7 +2,7 @@
   <h2 class="mt-4 mb-5">Review</h2>
 
   <div class="row">
-    <div class="col-sm-3 d-flex flex-column"><img :src="image" @error="defaultImage" class="url-image img-fluid" /></div>
+    <div class="col-sm-3 d-flex"><img :src="image" @error="defaultImage" class="url-image img-fluid" /></div>
 
     <div class="col-sm-9 pl-0">
       <table class="table table-borderless">
@@ -23,7 +23,11 @@
         </tbody>
       </table>
       <hr />
-      <div class="mt-4"><b>Review:</b><br /><%= @review.text %></div>
+      <div class="mt-4"><b>Review:</b>
+        <p>
+          <%= @review.text %>
+        </p>
+      </div>
     </div>
   </div>
 
