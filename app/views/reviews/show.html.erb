@@ -1,5 +1,5 @@
 <div id="show-review" class="container">
-  <h2 class="mt-4 mb-5">Review</h2>
+  <h2 class="mt-4 mb-5"><%= @review.title %></h2>
 
   <div class="row">
     <div class="col-sm-3 d-flex"><img :src="image" @error="defaultImage" class="url-image img-fluid" /></div>
@@ -39,7 +39,7 @@
   <hr />
 
   <div v-if="!commentsEmpty">
-    <p class="lead">Comments</p>
+    <p class="lead"><strong>Comments</strong></p>
     <div><%= render 'comments/comment' %></div>
   </div>
 

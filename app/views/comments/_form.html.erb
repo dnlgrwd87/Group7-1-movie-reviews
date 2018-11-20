@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
       <%= f.label :body, 'Comment' %><br />
-      <%= f.text_area :body, class: "form-control", :required => true %>
+      <%= f.text_area :body, class: "form-control", :minlength => 30, :maxlength => 100, :required => true %>
     </div>
     <%= f.submit 'Post', class: "btn btn-primary btn-sm" %>
     <span @click="showCommentInput = false" class="btn btn-warning btn-sm text-white">Cancel</span>
