@@ -2,19 +2,29 @@
   <% if comment.author == nil %>
     <% next %>
   <% end %>
-  <p>
-    <strong>Author:</strong>
-    <%= comment.author %>
-  </p>
+  <div class="card mb-3 w-50">
 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
 
-  <p>
-    <%= link_to 'Destroy Comment', [comment.review, comment],
+
+
+    <div class="card-body">
+      <p class="card-text">
+        <%= comment.body %>
+      </p>
+      <blockquote class="blocquote mb-0">
+        <footer class="blockquote-footer">
+             <%= comment.author %>
+        </footer>
+     
+      </blockquote>
+      <hr>
+        <%= link_to 'Delete', [comment.review, comment],
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-  </p>
+                class: 'btn btn-danger btn-sm',
+                data: { confirm: 'Are you sure?' } %>  
+    </div>
+     
+  </div>
+
+   
 <% end %>

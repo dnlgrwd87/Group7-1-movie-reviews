@@ -39,7 +39,7 @@
   <hr />
 
   <div v-if="!commentsEmpty">
-    <h4>Comments</h4>
+    <p class="lead">Comments</p>
     <div><%= render 'comments/comment' %></div>
   </div>
 
@@ -47,7 +47,7 @@
 </div>
 
 <script>
-  var imageError = new Vue({
+  var showReview = new Vue({
     el: '#show-review',
     data: {
       image: '<%= @review.image %>',
