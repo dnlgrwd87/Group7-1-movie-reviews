@@ -9,7 +9,7 @@
       </p>
       <blockquote class="blocquote mb-0">
         <footer class="blockquote-footer">
-             <%= comment.author %>
+             <%= comment.author %>, <%= comment.created_at.strftime("%m-%d-%Y") %>
         </footer>
      
       </blockquote>
