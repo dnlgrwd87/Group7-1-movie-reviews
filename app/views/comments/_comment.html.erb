@@ -1,4 +1,4 @@
-<% @review.comments.each do |comment| %>
+<% @review.comments.reverse_order.each do |comment| %>
   <% if comment.author == nil %>
     <% next %>
   <% end %>
