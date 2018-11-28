@@ -13,7 +13,8 @@ feature "Reviewer edits a review" do
         
         # reviewer goes to edit page and edits review
         visit reviews_path
-        click_link "Edit"
+        # click first "Edit" link in case there are more than one
+        first('.action-buttons').click_link "Edit"
         expect(page).to have_content "Edit your review"
         fill_in "Movie Title", with: "Harry Potter 1"
         click_button "Submit"
