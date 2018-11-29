@@ -12,11 +12,11 @@
     <div class="row">
       <div class="form-group col-sm-5">
         <%= f.label :title, 'Movie Title' %><br />
-        <%= f.text_field :title, class: "form-control", :required => true %>
+        <%= f.text_field :title, class: "form-control", maxlength: 25, :required => true %>
       </div>
       <div class="form-group col-sm-5">
         <%= f.label :author, 'Author' %><br />
-        <%= f.text_field :author, class: "form-control", :required => true %>
+        <%= f.text_field :author, class: "form-control", maxlength: 25, :required => true %>
       </div>
       <div class="form-group col">
         <%= f.label :rating, 'Rating' %><br />
@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
       <%= f.label :text, 'Write your review' %><br />
-      <%= f.text_area :text, class: "form-control text-area", minlength: 50, height: "300px", :required => true %>
+      <%= f.text_area :text, class: "form-control text-area", minlength: 50, maxlength: 1000, height: "300px", :required => true %>
     </div>
     <%= f.submit 'Submit', class: "btn btn-primary" %>
   </div>
