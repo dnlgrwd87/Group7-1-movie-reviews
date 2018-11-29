@@ -27,12 +27,11 @@
       
       <div class="d-flex">
         <%= f.label :text, 'Write your review' %><br />
-        <span class="text-muted ml-auto">{{ wordsLeft }} words remaining</span>
+        <span class="text-muted ml-auto">{{ charsLeft }} characters remaining</span>
       </div>
       
       <%= f.text_area :text, 
-                      :@input => 'updateWordCount', 
-                      :@keypress => 'updateWordCount',  
+                      :@input => 'updateCharCount',
                       class: "form-control text-area",
                       id: "review-text",
                       minlength: 50, 
@@ -52,7 +51,7 @@
       defaultImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
       userImage: '<%= @review.image %>',
       showError: false,
-      wordsLeft: 1000
+      charsLeft: 1000
     },
     methods: {
       updateImage(e) {
@@ -63,16 +62,16 @@
         this.userImage = this.defaultImage;
         this.showError = true;
       },
-      updateWordCount(e) {
+      updateCharCount(e) {
         
-        this.wordsLeft = 1000 - e.target.value.length;
+        this.charsLeft = 1000 - e.target.value.length;
       }
     },
     created() {
       if (this.userImage.length == 0) {
         this.userImage = this.defaultImage;
       }
-      this.wordsLeft = 1000 - $('#review-text').val().length;
+      this.charsLeft = 1000 - $('#review-text').val().length;
     }
   });
 </script>
