@@ -24,8 +24,21 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :text, 'Write your review' %><br />
-      <%= f.text_area :text, class: "form-control text-area", minlength: 50, maxlength: 1000, height: "300px", :required => true %>
+      
+      <div class="d-flex">
+        <%= f.label :text, 'Write your review' %><br />
+        <span class="text-muted ml-auto">{{ wordsLeft }} words remaining</span>
+      </div>
+      
+      <%= f.text_area :text, 
+                      :@input => 'updateWordCount', 
+                      :@keypress => 'updateWordCount',  
+                      class: "form-control text-area",
+                      id: "review-text",
+                      minlength: 50, 
+                      maxlength: 1000, 
+                      height: "300px", 
+                      :required => true %>
     </div>
     <%= f.submit 'Submit', class: "btn btn-primary" %>
   </div>
@@ -38,7 +51,8 @@
     data: {
       defaultImage: 'http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png',
       userImage: '<%= @review.image %>',
-      showError: false
+      showError: false,
+      wordsLeft: 1000
     },
     methods: {
       updateImage(e) {
@@ -48,12 +62,17 @@
       handleInvalidImage() {
         this.userImage = this.defaultImage;
         this.showError = true;
+      },
+      updateWordCount(e) {
+        
+        this.wordsLeft = 1000 - e.target.value.length;
       }
     },
     created() {
       if (this.userImage.length == 0) {
         this.userImage = this.defaultImage;
       }
+      this.wordsLeft = 1000 - $('#review-text').val().length;
     }
   });
 </script>
