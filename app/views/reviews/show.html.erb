@@ -32,7 +32,7 @@
   </div>
 
   <hr />
-  <p v-if="!showCommentInput" @click="showCommentInput = true" class="leave-comment">
+  <p @click="showCommentInput = true" class="leave-comment">
     Leave a comment <span class="pl-2"><i class="far fa-comment"></i></span>
   </p>
   <div v-if="showCommentInput"><%= render 'comments/form' %></div>

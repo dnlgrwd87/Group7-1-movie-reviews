@@ -15,7 +15,7 @@
     </thead>
 
     <tbody>
-      <% @reviews.each do |review| %>
+      <% @reviews.reverse_order.each do |review| %>
       <tr>
         <td class="fit">
           <img src="<%= review.image %>" style="width: 45px">
