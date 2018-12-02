@@ -19,5 +19,6 @@ feature "User adds a comment" do
         click_button "Post"
         expect(page).to have_content "Cool user"
         expect(page).to have_content "This is a really well thought out review. I enjoyed it"
+        expect(page).not_to have_content "Post"
     end
 end

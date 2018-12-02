@@ -18,5 +18,6 @@ feature "Reviewer edits a review" do
         fill_in "review[title]", with: "Harry Potter 1"
         click_button "Submit"
         expect(page).to have_content("Harry Potter 1")
+        expect(page).not_to have_content("Submit")
     end
 end

@@ -4,7 +4,7 @@ feature "Reviewer adds a review" do
     scenario "Reviewer successfully navigates to the new reviews page from the listing reviews page" do
         visit reviews_path
         expect(page).to have_content("List of reviews")
-        click_link "New review"
+        click_link "Add a review now"
         expect(page).to have_content("Add a review")
         expect(page).to have_field("review[title]")
         expect(page).to have_field("review[author]")
@@ -24,5 +24,6 @@ feature "Reviewer adds a review" do
         expect(page).to have_content("Mr. Reviewer")
         expect(page).to have_content("10")
         expect(page).to have_content("The movie was very good and was very true to the book. I sincerely think that it could not have been improved.")
+        expect(page).not_to have_content("Submit")
     end
 end
